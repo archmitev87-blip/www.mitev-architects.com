@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Архитектурно бюро Митеви</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+        body { background-color: #fcfcfc; color: #1a1a1a; line-height: 1.6; }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; position: fixed; width: 100%; top: 0;
+            background-color: rgba(252, 252, 252, 0.95); backdrop-filter: blur(5px);
+            z-index: 1000; border-bottom: 1px solid #eee;
+        }
+
+        .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo-img { height: 50px; width: auto; object-fit: contain; }
+        .logo-text { font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #1a1a1a; }
+        .logo-text span { font-weight: 300; color: #777; }
+
+        nav a { margin-left: 25px; text-decoration: none; color: #444; font-size: 0.85rem; letter-spacing: 1px; transition: color 0.3s; }
+        nav a:hover { color: #000; }
+
+        .hero {
+            height: 85vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: flex-start; padding: 0 8%;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600') center/cover no-repeat;
+            color: #fff; margin-top: 75px;
+        }
+        .hero h1 { font-size: 2.8rem; font-weight: 300; max-width: 850px; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 1.15rem; font-weight: 300; max-width: 750px; color: #ddd; }
+
+        .categories { padding: 90px 8%; }
+        .section-title { font-size: 1.8rem; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 50px; text-align: center; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+        .card {
+            position: relative; height: 380px; overflow: hidden;
+            background-size: cover; background-position: center;
+            display: flex; align-items: flex-end; padding: 30px; color: #fff;
+            text-decoration: none; transition: transform 0.4s ease;
+        }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); }
+        .card:hover { transform: translateY(-5px); }
+        .card-content { position: relative; z-index: 2; }
+        .card-content h3 { font-size: 1.3rem; font-weight: 400; margin-bottom: 8px; }
+        .card-content p { font-size: 0.85rem; color: #ccc; font-weight: 300; }
+
+        /* Секция За Инвеститора */
+        .investor-focus { padding: 90px 8%; background-color: #1a1a1a; color: #fff; }
+        .investor-container { max-width: 900px; margin: 0 auto; }
+        .investor-focus h2 { font-size: 2rem; font-weight: 300; letter-spacing: 2px; margin-bottom: 25px; }
+        .investor-focus p { font-size: 1.05rem; font-weight: 300; color: #ccc; margin-bottom: 30px; line-height: 1.8; }
+        
+        .investor-bullets { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
+        .bullet-item { border-left: 2px solid #fff; padding-left: 20px; }
+        .bullet-item h4 { font-weight: 500; font-size: 1.1rem; margin-bottom: 8px; }
+        .bullet-item p { font-size: 0.9rem; color: #aaa; margin-bottom: 0; }
+
+        /* Секция Контакти */
+        .contact { padding: 90px 8%; background-color: #f7f7f7; }
+        .contact-container { max-width: 900px; margin: 0 auto; background: #fff; padding: 50px; border: 1px solid #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 30px; }
+        .contact-card h4 { font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; color: #1a1a1a; }
+        .contact-card p, .contact-card a { font-size: 1rem; color: #555; font-weight: 300; text-decoration: none; line-height: 1.8; }
+        .contact-card a:hover { color: #000; text-decoration: underline; }
+
+        footer { padding: 40px 8%; text-align: center; font-size: 0.8rem; color: #888; border-top: 1px solid #eee; background-color: #fff; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo-container">
+            <img src="11.jpg" alt="Лого Архитектурно бюро Митеви" class="logo-img">
+            <div class="logo-text">Архитектурно бюро <span>Митеви</span></div>
+        </a>
+        <nav>
+            <a href="#categories">Направления</a>
+            <a href="#investor">За инвеститора</a>
+            <a href="#contact">Контакти</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Архитектура с мисъл за бъдещето и инвестиционния потенциал</h1>
+        <p>Архитектурно бюро Митеви — Проектиране на жилищни и промишлени сгради, пространствени и градоустройствени решения.</p>
+    </section>
+
+    <!-- Секция Направления -->
+    <section class="categories" id="categories">
+        <h2 class="section-title">Основни Направления</h2>
+        <div class="grid">
+            <a href="#contact" class="card" style="background-image: url('img-3.jpg');">
+                <div class="card-content">
+                    <h3>Еднофамилни сгради</h3>
+                    <p>Индивидуални къщи и модерни фамилни домове.</p>
+                </div>
+            </a>
+            <a href="#contact" class="card" style="background-image: url('img-2.jpg');">
+                <div class="card-content">
+                    <h3>Многофамилни сгради</h3>
+                    <p>Жилищни сгради и кооперации с висока функционалност.</p>
+                </div>
+            </a>
+            <a href="#contact" class="card" style="background-image: url('img-6.jpg');">
+                <div class="card-content">
+                    <h3>Затворени комплекси</h3>
+                    <p>Проектиране на комплекси от еднофамилни и многофамилни къщи.</p>
+                </div>
+            </a>
+            <a href="#contact" class="card" style="background-image: url('img-12.jpg');">
+                <div class="card-content">
+                    <h3>Промишлени сгради</h3>
+                    <p>Логистични бази, производствени халета и складови площи.</p>
+                </div>
+            </a>
+            <a href="#contact" class="card" style="background-image: url('img-15.jpg');">
+                <div class="card-content">
+                    <h3>Градоустройство & ПУП</h3>
+                    <p>Устройствени планове и градоустройствени проучвания.</p>
+                </div>
+            </a>
+            <a href="#investor" class="card" style="background-image: url('111.jpg');">
+                <div class="card-content">
+                    <h3>За Инвеститора</h3>
+                    <p>Връзката между собственици на имоти, инвеститори и концепции.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Секция За Инвеститора -->
+    <section class="investor-focus" id="investor">
+        <div class="investor-container">
+            <h2>За Инвеститора</h2>
+            <p>В <strong>Архитектурно бюро Митеви</strong> вярваме, че успешната архитектура започва още преди първия чертеж. Ние действаме като <strong>професионален мост между клиентите (собственици на терени) и инвеститорите</strong>, превръщайки суровата земя в добре структурирана и атрактивна инвестиционна възможност.</p>
+            
+            <div class="investor-bullets">
+                <div class="bullet-item">
+                    <h4>ПУП & Идейни концепции</h4>
+                    <p>Изготвяме бързи градоустройствени анализи, предложения за ПУП и обемно-устройствени проучвания.</p>
+                </div>
+                <div class="bullet-item">
+                    <h4>Мост между страните</h4>
+                    <p>Свързваме собственици на парцели с инвеститори и крайни купувачи чрез ясна архитектурна визия.</p>
+                </div>
+                <div class="bullet-item">
+                    <h4>Предложения за парцели</h4>
+                    <p><em>Очаквайте скоро:</em> Раздел с готови оферти за парцели, окомплектовани с идейни проекти и параметри.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Контакти -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Свържете се с нас</h2>
+        <div class="contact-container">
+            <div class="contact-grid">
+                
+                <div class="contact-card">
+                    <h4>Архитектурен колектив</h4>
+                    <p>арх. Димитър Митев</p>
+                    <p>арх. Веселка Митева</p>
+                    <p>арх. Калина Митева</p>
+                </div>
+
+                <div class="contact-card">
+                    <h4>Директен контакт</h4>
+                    <p>Тел: <a href="tel:0896639252">0896 639 252</a></p>
+                    <p>Имейл: <a href="mailto:arch.mitev.87@gmail.com">arch.mitev.87@gmail.com</a></p>
+                </div>
+
+                <div class="contact-card">
+                    <h4>Адрес на офиса</h4>
+                    <p>гр. Варна</p>
+                    <p>ул. „Васил Кънчев“ №10</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Архитектурно бюро Митеви. Всички права запазени.</p>
+    </footer>
+
+</body>
+</html>
